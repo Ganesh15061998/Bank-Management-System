@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Management System</title>
+    <style>
+        body{
+            background-color: rgb(226, 226, 245);
+        }
+        #LoginMainDiv{
+            width: 350px;
+            border: solid 1px black;
+            padding: 30px;
+            background-color: rgb(102, 102, 160);
+            margin-left: 37%;
+            margin-top: 8%;
+
+        }        
+       input{
+        width:300px;
+        height: 29px;
+        border-radius: 4px;
+        margin-top: 18px;
+        margin-left: 17px;
+        background-color: rgb(231, 231, 244);
+        
+       }
+       #wellcome{
+        text-align: center;
+       }
+       #submitBtn{
+        background-color: rgb(7, 115, 74);
+       }
+       #CreateUser{
+        text-align: center;
+        font-size: 20px;
+        text-align: center;
+        margin-top: 10px;
+       }
+       #topBankHehing{
+         text-align: center;
+       }
+    </style>
+</head>
+
+<body>
+    <div id="topBankHehing">
+        <h1 id="top-title">DEMO BANK</h1>
+    </div>
+    <div id="LoginMainDiv">
+        
+        <div>
+            <h3 id="wellcome">USER LOGIN</h3>
+        </div>
+        <form id="login-form">
+            <div>
+                <input id="login-Email" type="email" placeholder="  Email">
+            </div>
+            <div>
+                <input id="login-password" type="Password" placeholder="  Password">
+            </div>
+            <div>
+                <input type="submit" value="Submit" id="submitBtn">
+            </div>
+        </form>
+        <div id="CreateUser">
+            <a href="C:\Users\Dell\OneDrive\Desktop\Ganesh\Bank\CreateUser.html" >Create New User</a>
+        </div>
+    </div>
+
+
+    <script>
+
+        var LocalEmail = localStorage.getItem('Email');
+        var LocalPass = localStorage.getItem('password');
+        console.log(LocalEmail)
+        console.log(LocalPass)
+        var LoginEmail = document.getElementById('login-Email')
+        var LoginPass = document.getElementById('login-password')
+        console.log(LoginEmail.value)
+        console.log(LoginPass.value)
+        var myButton = document.getElementById("bin-Login");
+
+        var form = document.getElementById("myForm");
+        var submitButton = document.getElementById("submitBtn");
+        submitButton.onclick = function (event) {
+            event.preventDefault();
+            redirectHomePage();
+
+            function redirectHomePage() {
+                if (LoginEmail.value != LocalEmail) {
+                    console.log('Please Enter Volid Email')
+                } else if (LoginPass.value != LocalPass) {
+                    console.log("Please Enter Valid Password")
+                }
+                else {
+                    window.location.href = "Home.html";
+                }
+            }
+
+
+        };
+
+    </script>
+</body>
+
+</html>
